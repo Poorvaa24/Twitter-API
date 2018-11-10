@@ -77,7 +77,7 @@
 				<configuration>
                 <archive>
                     <manifest>
-                        <mainClass>your.main.Class</mainClass>
+                        <mainClass>TwitterClientApplication.java</mainClass>
                     </manifest>
                 </archive>
             </configuration>
