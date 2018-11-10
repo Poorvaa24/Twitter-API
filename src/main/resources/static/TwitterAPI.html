@@ -1,0 +1,435 @@
+<!-- @author Harshit Nagpal
+Web page to display the list of APIS
+-->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body, html {
+
+    height: 100%;
+
+    margin: 0;
+
+}
+
+.bg {
+    background-image: url("Twitter_IMG.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {text-align:center;}
+
+p {text-align:center;}
+
+
+
+.buttonAlignment {
+
+text-align: center;
+
+}
+
+
+
+.button {
+
+    background-color: green;
+
+    border: none;
+
+    color: white;
+
+    padding: 10px 20px;
+
+    text-align: left;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+}
+
+.button2 {width: 60%;}
+
+.button1 {background-color: #008CBA;}
+
+
+
+.headingFont {
+
+	color: green;
+
+	text-align: center;
+
+	font-size: 85px;
+
+}
+
+
+
+input[type=button] {
+
+	background-color: green;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 25px;
+
+    text-decoration: none;
+
+    margin: 4px 2px;
+
+    cursor: pointer;
+
+}
+
+
+
+input[type=number], select {
+
+    width: 10%;
+
+    padding: 10px 20px;
+
+    margin: 8px 0;
+
+    display: inline-block;
+
+    border: 1px solid #ccc;
+
+    border-radius: 2px;
+
+    box-sizing: border-box;
+
+}
+
+
+
+input[type=text], select {
+
+	width: 20%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 4px;
+
+    resize: vertical;
+
+}
+
+
+
+input[type=password], select {
+
+    width: 10%;
+
+    padding: 10px 20px;
+
+    margin: 8px 0;
+
+    display: inline-block;
+
+    border: 1px solid #ccc;
+
+    border-radius: 2px;
+
+    box-sizing: border-box;
+
+}
+
+
+
+.formAlign {
+
+text-align: center;
+
+}
+
+
+
+label {
+
+    color: green;
+
+    font-size: 30px;
+
+}
+
+</style>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    
+
+<script type="text/javascript">      
+
+$(function() {
+
+
+    $('#hometimelinetweets').click(function() {
+
+        $.ajax({
+
+            type: 'GET',
+
+            url: '/api.twitter.com/1.1/getHometimeline',
+
+            success :function(data) {
+
+                var json = JSON.stringify(data);
+
+                $("textarea#output_area").val(json);
+
+              }
+
+        });
+
+    });
+
+
+    $('#getLanguage').click(function() {
+
+        $.ajax({
+
+            type: 'GET',
+
+            url: '/api.twitter.com/1.1/getLanguage',
+
+            success :function(data) {
+
+                var json = JSON.stringify(data);
+
+                $("textarea#output_area").val(json);
+
+              }
+
+        });
+
+    });
+
+
+    $('#getTrendsAvailable').click(function() {
+
+        $.ajax({
+
+            type: 'GET',
+
+            url: '/api.twitter.com/1.1/getTrendsAvailable',
+
+            success :function(data) {
+
+                var json = JSON.stringify(data);
+
+                $("textarea#output_area").val(json);
+
+              }
+
+        });
+
+    });
+
+
+      $('#getUserTimeline').click(function() {
+
+          $.ajax({
+
+              type: 'GET',
+
+              url: '/api.twitter.com/1.1/getUserTimeline',
+
+              success :function(data) {
+
+                  var json = JSON.stringify(data);
+
+                  $("textarea#output_area").val(json);
+
+                }
+
+          });
+
+      });
+
+
+      $('#getLanguagePrivacy').click(function() {
+
+          $.ajax({
+
+              type: 'GET',
+
+              url: '/api.twitter.com/1.1/getLanguagePrivacy',
+
+              success :function(data) {
+
+                  var json = JSON.stringify(data);
+
+                  $("textarea#output_area").val(json);
+
+                }
+
+          });
+
+      });
+
+
+      $('#getFavouriteList').click(function() {
+
+          $.ajax({
+
+              type: 'GET',
+
+              url: '/api.twitter.com/1.1/getFavouriteList',
+
+              success :function(data) {
+
+                  var json = JSON.stringify(data);
+
+                  $("textarea#output_area").val(json);
+
+                }
+
+          });
+
+      });
+
+
+      $('#getFollowersList').click(function() {
+
+          $.ajax({
+
+              type: 'GET',
+
+              url: '/api.twitter.com/1.1/getFollowersList',
+
+              success :function(data) {
+
+                  var json = JSON.stringify(data);
+
+                  $("textarea#output_area").val(json);
+
+                }
+
+          });
+
+      });
+
+    
+
+
+      $('#searchHashTag').click(function() {
+
+    	  var tweet_input = $('#tweetvalue').val()
+
+          $.ajax({
+
+              type: 'GET',
+
+              url: '/api.twitter.com/1.1/searchHashTag/' + tweet_input,
+
+              success :function(data) {
+
+                  $("textarea#output_area").val(data);
+
+                }
+
+          });
+
+      })
+
+});
+
+</script>
+
+
+
+</head>
+
+
+
+<body class="bg">
+
+
+
+<h1 class="headingFont">TWITTER APIs</h1>
+
+
+
+<div id="feedback"></div>
+
+
+
+<div style="float:left">
+
+
+
+<input type=button value='Home_Timeline_Tweets' id="hometimelinetweets" class="button button2">
+
+<br> <br>
+
+<input type=button value='Get_Language' id="getLanguage" class="button button2">
+
+<br> <br>
+
+<input type=button value='Get_Trends_Available' id="getTrendsAvailable" class="button button2">
+
+<br> <br>
+
+<input type=button value='Get_User_Timeline' id="getUserTimeline" class="button button2">
+
+<br> <br>
+
+<input type=button value='Get_twitter_Privacy' id="getLanguagePrivacy" class="button button2">
+
+<br> <br>
+
+<input type=button value='Get_Favourite_List' id="getFavouriteList" class="button button2">
+
+<br> <br>
+
+<input type=button value='Get_Followers_List' id="getFollowersList" class="button button2">
+
+<br> <br>
+
+Search String: <input type=text size="10" value=''placeholder="Search String.." id="tweetvalue" style="width:100px;height:8px">
+
+<input type=button value='Search_Tweet' id="searchHashTag" class="button button2">
+
+<br> <br>
+
+<input type=button onClick="parent.location='HomePage.html'" value='Back' style="background:blue">
+
+
+
+</div>
+
+<div style="float:left">
+
+	<textarea rows="40" cols="100" id="output_area" placeholder="Output..."></textarea>
+
+	</div>
+
+
+
+
+
+</body>
+
+</html>
